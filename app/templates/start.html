@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}chess{% endblock %}
+{% block head %}
+<head>
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='start.css') }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Great Vibes">
+</head>
+{% endblock %}
+
+{% block content %}
+
+<h2>Ones there was a little frog &#128056; called Simona. She was attending school and studying math.</h2><br>
+<h2>Can you help the little frog to do a timetable test?</h2>
+
+<form id='start' action="/start" method="POST">
+  <div class='formDiv'>
+    <label>Please Enter Your name</label>
+    <input name='name' class="formInput" id='name' placeholder="Name">
+  </div>
+  <div class='formDiv'>
+    <label>Chose Number</label>
+    <input name='number' class="formInput" id='number' placeholder="5">
+  </div>
+  <button id='formSub' type='submit' onclick="startQuiz()">Start</button>
+</form>
+
+<script type="text/javascript">
+    var user = '{{ user }}';
+    console.log('user out', user);
+  </script>
+<script src="{{ url_for('static', filename='start.js') }}"></script>
+
+{% endblock %}

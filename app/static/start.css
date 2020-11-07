@@ -1,0 +1,20 @@
+
+.formDiv {
+  padding: 2em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.formInput {
+  margin: auto;
+}
+
+#name {
+  width: 13em;
+}
+
+#number {
+  width: 2em;
+}
