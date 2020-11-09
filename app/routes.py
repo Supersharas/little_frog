@@ -44,21 +44,23 @@ def register():
 @app.route('/start', methods=['POST'])
 def start():
   req = request.form
-  return redirect(url_for('test', name = req['name'], number = req['number']))
+  return redirect(url_for('test', name = req['name'], number = req['number'], operator = 'x'))
 
-@app.route('/test/<name><number>')
-def test(name, number):
-  equations = []
+@app.route('/test/<name><int:number><operator>')
+def test(name, number, operator):
+  equations = {}
   prev = 0
-  for i in range(60):
-    num = random.randint(-1,12)
+  i = 1
+  while i < 61:
+    num = random.randint(0,12)
     if num == prev:
       continue
     direction = random.randint(0,2)
     if direction == 1:
-      equations.append((number, num))
+      equations[i] = [number, operator, num]
     else:
-      equations.append((num, number))
-    i += i
-  return jsonify(equations)
+      equations[i] = [num, operator, number]
+    prev = num
+    i += 1
+  return render_template('math.html', number=number, equations=json.dumps(equations))
 

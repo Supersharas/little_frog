@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}chess{% endblock %}
+{% block head %}
+<head>
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='math.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+</head>
+{% endblock %}
+
+{% block content %}
+
+<div id="timer">00:00</div>
+
+
+<h2>Multiplying by {{number}}</h2>
+
+<div id='result'>
+  <h2>Well Done!</h2>
+  <div id='resultp'></div>
+</div>
+
+<div id="equationContainer">
+  <div id='progress'></div>
+  <div id='equation'>
+    <div id='problem'></div>
+    <input id="salution" autofocus>
+    <button id="calculate" onclick="calculate()">submit</button>
+  </div>
+  <div id='feedback'></div>
+</div>
+
+<div id="history"></div>
+<script type="text/javascript">
+    var equations = {{equations| safe}};
+  </script>
+<script src="{{ url_for('static', filename='math.js') }}"></script>
+
+{% endblock %}

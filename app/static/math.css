@@ -1,0 +1,50 @@
+
+#timer {
+  font-family: 'Saira Stencil One', cursive;
+  position: fixed;
+  right: 5em;
+  top: 5em;
+}
+
+#equation {
+  max-width: 20em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  margin: auto;
+}
+
+#result {
+  visibility: hidden;
+}
+
+#resultp {
+  color: green;
+  font-size: 3em;
+}
+
+#problem {
+  font-size: 2em;
+}
+
+#salution {
+  font-size: 2em;
+  margin-left: 1em;
+  margin-right: 1em;
+  width: 2em;
+}
+
+#feedback, #progress {
+  font-size: 2em;
+  margin: 1em;
+}
+
+#history {
+  margin: 2em;
+}
+
+#history small {
+  font-size: 1.5em;
+  margin: 0.6em;
+}
