@@ -5,9 +5,9 @@ from sqlalchemy import or_
 import sys
 import json
 from markupsafe import escape 
-import random
 
 from app.models import Test, Result
+from app.test_engine import create_test
 
 
 @app.route('/')
@@ -48,19 +48,10 @@ def start():
 
 @app.route('/test/<name><int:number><operator>')
 def test(name, number, operator):
-  equations = {}
-  prev = 0
-  i = 1
-  while i < 61:
-    num = random.randint(0,12)
-    if num == prev:
-      continue
-    direction = random.randint(0,2)
-    if direction == 1:
-      equations[i] = [number, operator, num]
-    else:
-      equations[i] = [num, operator, number]
-    prev = num
-    i += 1
-  return render_template('math.html', number=number, equations=json.dumps(equations))
+  equations = create_test(number, operator)
+  return render_template('math.html', name=name, number=number, equations=json.dumps(equations))
 
+@app.route('/printtest/<name><int:number><operator>')
+def print_test(name, number, operator):
+  equations = create_test(number, operator)
+  return render_template('print_test.html', name=name, number=number, equations=equations)

@@ -1,0 +1,17 @@
+
+
+
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+	<h1>Multiplication by {{number}} Test</h1>
+	<h2>participant: {{name}}</h2>
+
+	<div id='printContainer'>
+		{% for eq in equations %}
+		<div class='printDiv'>{{eq[0]}} {{eq[1]}} {{eq[2]}} = ___</div>
+		{% endfor %}
+	</div>
+</body>

@@ -41,8 +41,7 @@ function finished(reason){
 }
 
 function calculate(){
-  let se = sequence.toString();
-  let eq = equations[se];
+  let eq = equations[sequence];
   let answer = document.getElementById('salution').value
   console.log(answer)
   const history = document.createElement("small");
