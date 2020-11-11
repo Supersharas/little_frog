@@ -3,7 +3,7 @@ from app import app
 
 '''
 source env/bin/activate
-FLASK_APP=chess.py
+FLASK_APP=test.py
 export FLASK_ENV=development
 flask run --host=0.0.0.0 --port=8080
 

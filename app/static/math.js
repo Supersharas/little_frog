@@ -1,5 +1,5 @@
 
-var sequence = 1;
+var sequence = 0;
 var good = 0;
 var min = 10;
 var sec = 0;
@@ -8,7 +8,7 @@ console.log('equations', equations);
 
 function start(){
   console.log(sequence);
-  if(sequence > 60){
+  if(sequence > 59){
     finished('end');
   } else {
     document.getElementById('salution').focus();
